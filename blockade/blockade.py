@@ -26,7 +26,7 @@ def txt_to_matrix(filename):
 
 
 filename = '/Users/michaelbelyaev/Desktop/Programming/Python/programming_problems/blockade/input.txt'
-matrix = csv_to_matrix(filename)
+matrix = txt_to_matrix(filename)
 
 #print(matrix)
 
