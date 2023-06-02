@@ -1,0 +1,25 @@
+Task
+
+The state of Flatlandia is a rectangle of size M x N, consisting of unit squares. Flatlandia is divided into K provinces (2 <= K <= 100). Each province represents a connected set of squares, meaning that from any point in the province, you can reach any other point in the province by moving from one square to another only if they share a common side (a common vertex is not enough). There is no point in Flatlandia that borders more than three provinces (i.e., four squares with a common vertex cannot belong to four different provinces). Each province has its own symbol. The capital of Flatlandia is located in the province with the symbol A (uppercase Latin letter A). A province is called border if it contains border squares. The province where the capital of Flatlandia is located is not a border province.
+
+The King of Rectilia, a neighboring kingdom of Flatlandia, has decided to conquer Flatlandia. To do this, he wants to capture the capital of Flatlandia. However, he knows that the strength of his army is not enough to do it all at once. Therefore, he first wants to surround the central province, weaken the enemy forces with a long blockade, and then capture the capital.
+
+To surround a province, it is necessary to capture all the provinces that border it. Two provinces border each other if there exist two squares with a common side, one of which belongs to the first province, and the other belongs to the second. To capture a province, one of the two conditions must be met: either it is a border province or it borders an already captured province.
+
+To preserve the strength of his army, the King of Rectilia wants to establish a blockade of the central province by capturing as few provinces as possible. Help him find out how many provinces need to be captured. It is not possible to capture the central province itself because the forces of the Rectilia army are currently insufficient.
+
+Input
+
+The first line contains M and N (3 <= M, N <= 200). The next M lines contain N characters each, defining the map of Flatlandia. The symbol in the (i+1)-th line of the input file in the j-th position represents the symbol of the province to which the square (i,j) belongs. All symbols have ASCII codes greater than 32.
+
+Output
+
+Output a single number to the output file - the number of provinces that need to be captured. If it is not possible to establish a blockade, output "-1".
+
+Example Input            Example Output
+5 6                      4
+BBBBBZ
+BCCCBZ
+BCAbbZ
+BDDDbZ
+33333Z
