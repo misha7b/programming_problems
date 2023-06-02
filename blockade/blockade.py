@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 import numpy as np
 
-def csv_to_matrix(filename):
+def txt_to_matrix(filename):
     
     with open(filename, 'r') as file:
         lines = file.readlines()
