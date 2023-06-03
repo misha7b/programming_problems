@@ -1,36 +1,55 @@
+import numpy as np
+import matplotlib.pyplot as plt
 
-from sympy import *
-from sympy.plotting import plot
+def f(x):
+    return np.exp(-(x-5)**2) + 0.1*np.sin(x-2)
 
-x = Symbol('x')
-f = exp(-(x-5)**2) + 0.1*sin(x-2)
+def dx(f, x, h = 1e-8):
+    return (f(x + h) - f(x)) / h
+    
 
-c = 1
 
-theta = -3
+def gradient_ascent(theta, f, c = 1, epsilon = 0.01, step = 5, max_iter = 100):
 
-epsilon = 0.001
+    x_values = []
+    y_values = []
 
-step = 6
+    while max_iter > 0 and abs(dx(f, theta)) > epsilon:
+       
+        x_values.append(theta)
+        y_values.append(f(theta))
 
-max_iter = 1000
+        gradient = dx(f, theta)
 
-while abs(diff(f,x).subs(x,theta).evalf()) > epsilon and max_iter > 0:
+        theta_new = theta + step * gradient
 
-    gradient = diff(f,x).subs(x,theta).evalf()
+        if f(theta_new) < f(theta) + c * step * gradient:
+            step = step / 2
+        
+        theta = theta_new
 
-    theta_new = theta + step*gradient
+    return x_values, y_values, theta
 
-    if f.subs(x,theta_new).evalf() < f.subs(x,theta).evalf() + c*step*gradient:
-        step = step/2
 
-    theta = theta_new
+    
+theta = 3.5
 
-    max_iter -= 1
+x_values, y_values, optimal_theta = gradient_ascent(theta, f)
 
-print(theta)
+print("Optimal theta: ", optimal_theta)
 
-#plot graph of f
+#plot function
 
-plot(f,(x,-4,6))
+x = np.linspace(-5, 10, 100)
+y = f(x)
+
+plt.plot(x, y)
+plt.plot(x_values, y_values, 'ro')
+plt.show()
+
+    
+
+
+
+
 
