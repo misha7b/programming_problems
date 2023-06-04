@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 
 def f(x):
     return np.exp(-(x-5)**2) + 0.1*np.sin(x-2)
+    
 
 def dx(f, x, h = 1e-8):
     return (f(x + h) - f(x)) / h
@@ -48,7 +49,6 @@ plt.plot(x_values, y_values, 'ro')
 plt.show()
 
     
-
 
 
 
