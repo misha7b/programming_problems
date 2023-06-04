@@ -40,6 +40,7 @@ def newton_raphson(theta, f, c = 1, epsilon = 0.001, max_iter = 1000):
         if hessian > 0:
             step = -step
 
+        
     
         passed = False
 
@@ -55,10 +56,6 @@ def newton_raphson(theta, f, c = 1, epsilon = 0.001, max_iter = 1000):
                     step = step / 2 
                     passed = False
             
-            
-    
-
-
                     
         print("Theta new: ", theta_new)
                 
